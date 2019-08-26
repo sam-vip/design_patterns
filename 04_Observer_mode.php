@@ -47,20 +47,11 @@ class Subject implements SplSubject
      *
      * @param $count
      */
-    public function setCount($count)
+    public function sendMessage($name)
     {
-        echo "数据量加" . $count . '<br>';
+        echo   $name .'去吃饭<br>';
     }
 
-    /**
-     * 设置积分
-     *
-     * @param $integral
-     */
-    public function setIntegral($integral)
-    {
-        echo "积分量加" . $integral . '<br>';
-    }
 
 }
 
@@ -71,7 +62,7 @@ class Observer1 implements SplObserver
 {
     public function update(SplSubject $subject)
     {
-        $subject->setCount(10);
+        $subject->sendMessage("小明");
     }
 }
 
@@ -82,7 +73,7 @@ class Observer2 implements SplObserver
 {
     public function update(SplSubject $subject)
     {
-        $subject->setIntegral(10);
+        $subject->sendMessage("晓红");
     }
 }
 
@@ -108,7 +99,7 @@ class Client
         // 添加观察者二
         $subject->attach($observer2);
         // 消息提示
-        $subject->notify();//输出：数据量加1 积分量加10
+        $subject->notify();
         // 移除观察者一
         $subject->detach($observer1);
         // 消息提示

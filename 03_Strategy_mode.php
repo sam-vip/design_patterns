@@ -95,16 +95,6 @@ class Mine{
     private $_strategy;
     private $_isChange = false;
 
-    /**
-     * 构造方法
-     * 此处使用到了依赖注入和类型约束的概念，详情请参考
-     * 1.聊一聊PHP的依赖注入(DI) 和 控制反转(IoC)
-     * @link https://segmentfault.com/a/1190000007209266
-     * 2.浅谈PHP的类型约束
-     * @link https://segmentfault.com/a/1190000007226476
-     *
-     * @param Travel $travel
-     */
     public function __construct(Travel $travel)
     {
         $this->_strategy = $travel;
